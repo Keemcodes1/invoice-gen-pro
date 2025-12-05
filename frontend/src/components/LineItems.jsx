@@ -54,7 +54,7 @@ const LineItems = ({ items, onItemChange, onAddItem, onRemoveItem }) => {
                                 <Trash2 className="w-4 h-4" />
                             </button>
                             <span className="text-sm font-mono font-bold text-blue-400">
-                                ${(item.quantity * item.price).toFixed(2)}
+                                UGX {(item.quantity * item.price).toLocaleString()}
                             </span>
                         </div>
                     </div>
