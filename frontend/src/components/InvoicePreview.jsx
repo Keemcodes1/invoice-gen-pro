@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 const InvoicePreview = ({ data }) => {
     const {
@@ -18,7 +18,13 @@ const InvoicePreview = ({ data }) => {
     const taxAmount = subtotal * taxRate;
     const total = subtotal + taxAmount;
 
-    const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
+    // Generate stable invoice number based on current date
+    const invoiceNumber = useMemo(() => {
+        const now = new Date();
+        const dateStr = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
+        const randomPart = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+        return `INV-${dateStr}-${randomPart}`;
+    }, []);
 
     return (
         <div id="invoice-preview" style={{
@@ -59,7 +65,7 @@ const InvoicePreview = ({ data }) => {
             <div style={{ padding: '40px 32px', position: 'relative' }}>
                 {/* Header Section */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '48px' }}>
-                    {/* Left - Logo and Invoice Title */}
+                    {/* Left - Logo, Tagline and Invoice Title */}
                     <div>
                         {companyLogo && (
                             <div style={{ marginBottom: '16px' }}>
@@ -73,19 +79,20 @@ const InvoicePreview = ({ data }) => {
                                         display: 'block'
                                     }}
                                 />
-                                {companyTagline && (
-                                    <p style={{
-                                        fontSize: '14px',
-                                        color: '#F97316',
-                                        fontStyle: 'italic',
-                                        marginTop: '8px',
-                                        fontWeight: '500',
-                                        maxWidth: '400px'
-                                    }}>
-                                        {companyTagline}
-                                    </p>
-                                )}
                             </div>
+                        )}
+                        {companyTagline && (
+                            <p style={{
+                                fontSize: '14px',
+                                color: '#F97316',
+                                fontStyle: 'italic',
+                                marginTop: companyLogo ? '0' : '0',
+                                marginBottom: '16px',
+                                fontWeight: '500',
+                                maxWidth: '400px'
+                            }}>
+                                {companyTagline}
+                            </p>
                         )}
                         <h1 style={{ fontSize: '42px', fontWeight: '900', color: '#111827', letterSpacing: '-1px', margin: 0, lineHeight: 1 }}>INVOICE</h1>
                         <p style={{ fontSize: '14px', color: '#F97316', fontWeight: '600', marginTop: '8px' }}>{invoiceNumber}</p>
