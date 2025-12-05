@@ -8,6 +8,9 @@ import SignaturePad from './components/SignaturePad';
 import LineItems from './components/LineItems';
 import InvoicePreview from './components/InvoicePreview';
 
+// API base URL - uses env variable in production, empty string (proxy) in development
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+
 function App() {
     const [invoiceData, setInvoiceData] = useState({
         companyName: '',
@@ -191,7 +194,7 @@ function App() {
                 formData.append('customer_signature', blob, 'customer_sig.png');
             }
 
-            await axios.post('/api/invoices/', formData, {
+            await axios.post(`${API_BASE_URL}/api/invoices/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
