@@ -232,7 +232,7 @@ function App() {
                             InvoiceGen <span className="text-slate-500 font-light">Pro</span>
                         </h1>
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex gap-2 sm:gap-4">
                         <button
                             onClick={saveToBackend}
                             disabled={isSaving}
@@ -240,13 +240,16 @@ function App() {
                             style={{ background: '#334155' }}
                         >
                             {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                            {isSaving ? 'Saving...' : 'Save Invoice'}
+                            <span className="hidden sm:inline">{isSaving ? 'Saving...' : 'Save Invoice'}</span>
+                            <span className="sm:hidden">{isSaving ? '...' : 'Save'}</span>
                         </button>
                         <button
                             onClick={generatePDF}
                             className="btn-primary flex items-center gap-2"
                         >
-                            <Download className="w-4 h-4" /> Download PDF
+                            <Download className="w-4 h-4" />
+                            <span className="hidden sm:inline">Download PDF</span>
+                            <span className="sm:hidden">PDF</span>
                         </button>
                     </div>
                 </div>
