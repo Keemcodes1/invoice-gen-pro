@@ -54,7 +54,7 @@ const InvoicePreview = ({ data }) => {
                 width: '100%'
             }}></div>
 
-            <div style={{ padding: '48px', position: 'relative' }}>
+            <div style={{ padding: '40px 32px', position: 'relative' }}>
                 {/* Header Section */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '48px' }}>
                     {/* Left - Logo and Invoice Title */}
@@ -105,7 +105,7 @@ const InvoicePreview = ({ data }) => {
                 </div>
 
                 {/* Billing Section */}
-                <div style={{ display: 'flex', gap: '48px', marginBottom: '40px' }}>
+                <div style={{ display: 'flex', gap: '32px', marginBottom: '40px' }}>
                     {/* From */}
                     <div style={{ flex: 1 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
@@ -164,7 +164,7 @@ const InvoicePreview = ({ data }) => {
 
                 {/* Totals */}
                 <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '40px' }}>
-                    <div style={{ width: '280px', background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)', borderRadius: '12px', padding: '20px 24px', border: '1px solid #FED7AA' }}>
+                    <div style={{ width: '320px', background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)', borderRadius: '12px', padding: '20px 24px', border: '1px solid #FED7AA' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
                             <span style={{ fontSize: '13px', color: '#4B5563' }}>Subtotal</span>
                             <span style={{ fontSize: '13px', fontWeight: '600', color: '#111827' }}>UGX {subtotal.toLocaleString()}</span>
@@ -220,7 +220,7 @@ const InvoicePreview = ({ data }) => {
             </div>
 
             {/* Footer */}
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(90deg, #FFF7ED 0%, #FFEDD5 100%)', padding: '20px 48px', borderTop: '1px solid #FED7AA' }}>
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(90deg, #FFF7ED 0%, #FFEDD5 100%)', padding: '20px 32px', borderTop: '1px solid #FED7AA' }}>
                 <p style={{ textAlign: 'center', fontSize: '12px', color: '#4B5563', margin: 0 }}>
                     <strong style={{ color: '#EA580C' }}>Thank you for your business!</strong>
                     <span style={{ margin: '0 12px', color: '#D1D5DB' }}>•</span>
