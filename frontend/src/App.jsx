@@ -30,13 +30,17 @@ function App() {
         includeVAT: false,
         date: new Date().toISOString().split('T')[0],
         dueDate: '',
-        // Payment Details
+        // Payment Details - Bank
         bankName: '',
         accountName: '',
         accountNumber: '',
         swiftCode: '',
-        mobileMoneyName: '',
-        mobileMoneyNumber: '',
+        // Mobile Money - MTN
+        mtnName: '',
+        mtnNumber: '',
+        // Mobile Money - Airtel
+        airtelName: '',
+        airtelNumber: '',
     });
     const [isSaving, setIsSaving] = useState(false);
 
@@ -424,18 +428,21 @@ function App() {
                                     </div>
                                 </div>
 
-                                {/* Mobile Money */}
-                                <div className="p-4 rounded-lg" style={{ background: 'rgba(249, 115, 22, 0.1)', border: '1px solid rgba(249, 115, 22, 0.2)' }}>
-                                    <p className="text-sm font-semibold text-orange-400 mb-3">Mobile Money</p>
+                                {/* Mobile Money - MTN */}
+                                <div className="p-4 rounded-lg" style={{ background: 'rgba(250, 204, 21, 0.08)', border: '1px solid rgba(250, 204, 21, 0.3)' }}>
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <div style={{ width: '28px', height: '28px', background: '#FACC15', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '10px', color: '#000' }}>MTN</div>
+                                        <p className="text-sm font-semibold" style={{ color: '#FACC15' }}>MTN Mobile Money</p>
+                                    </div>
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-sm text-slate-400 mb-1">Account Name</label>
                                             <input
                                                 type="text"
                                                 className="input-field"
-                                                placeholder="Mobile money name"
-                                                value={invoiceData.mobileMoneyName}
-                                                onChange={(e) => updateField('mobileMoneyName', e.target.value)}
+                                                placeholder="MTN MoMo name"
+                                                value={invoiceData.mtnName}
+                                                onChange={(e) => updateField('mtnName', e.target.value)}
                                             />
                                         </div>
                                         <div>
@@ -443,9 +450,39 @@ function App() {
                                             <input
                                                 type="text"
                                                 className="input-field"
-                                                placeholder="+256 700 000 000"
-                                                value={invoiceData.mobileMoneyNumber}
-                                                onChange={(e) => updateField('mobileMoneyNumber', e.target.value)}
+                                                placeholder="+256 77X XXX XXX"
+                                                value={invoiceData.mtnNumber}
+                                                onChange={(e) => updateField('mtnNumber', e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Mobile Money - Airtel */}
+                                <div className="p-4 rounded-lg" style={{ background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.3)' }}>
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <div style={{ width: '28px', height: '28px', background: '#EF4444', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '8px', color: '#fff', letterSpacing: '-0.5px' }}>airtel</div>
+                                        <p className="text-sm font-semibold text-red-400">Airtel Money</p>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm text-slate-400 mb-1">Account Name</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="Airtel Money name"
+                                                value={invoiceData.airtelName}
+                                                onChange={(e) => updateField('airtelName', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-slate-400 mb-1">Phone Number</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="+256 70X XXX XXX"
+                                                value={invoiceData.airtelNumber}
+                                                onChange={(e) => updateField('airtelNumber', e.target.value)}
                                             />
                                         </div>
                                     </div>

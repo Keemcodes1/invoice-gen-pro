@@ -10,7 +10,7 @@ const InvoicePreview = ({ data }) => {
         includeVAT,
         date, dueDate,
         bankName, accountName, accountNumber, swiftCode,
-        mobileMoneyName, mobileMoneyNumber
+        mtnName, mtnNumber, airtelName, airtelNumber
     } = data;
 
     const subtotal = items.reduce((sum, item) => sum + (item.quantity * item.price), 0);
@@ -185,33 +185,50 @@ const InvoicePreview = ({ data }) => {
                 </div>
 
                 {/* Payment Details Section */}
-                {(bankName || accountNumber || mobileMoneyNumber) && (
+                {(bankName || accountNumber || mtnNumber || airtelNumber) && (
                     <div style={{ marginBottom: '32px', padding: '20px', background: '#F9FAFB', borderRadius: '12px', border: '1px solid #E5E7EB' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                             <div style={{ width: '4px', height: '20px', background: 'linear-gradient(180deg, #10B981, #059669)', borderRadius: '2px' }}></div>
                             <p style={{ fontSize: '12px', fontWeight: '700', color: '#059669', textTransform: 'uppercase', letterSpacing: '1.5px', margin: 0 }}>Payment Details</p>
                         </div>
-                        <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
                             {/* Bank Transfer */}
                             {(bankName || accountNumber) && (
-                                <div style={{ flex: 1, minWidth: '200px' }}>
+                                <div style={{ flex: 1, minWidth: '180px' }}>
                                     <p style={{ fontSize: '11px', fontWeight: '600', color: '#10B981', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Bank Transfer</p>
                                     <div style={{ background: '#ffffff', padding: '12px', borderRadius: '8px', border: '1px solid #D1FAE5' }}>
-                                        {bankName && <p style={{ fontSize: '13px', color: '#111827', margin: '0 0 4px 0' }}><strong>Bank:</strong> {bankName}</p>}
-                                        {accountName && <p style={{ fontSize: '13px', color: '#111827', margin: '0 0 4px 0' }}><strong>Account Name:</strong> {accountName}</p>}
-                                        {accountNumber && <p style={{ fontSize: '13px', color: '#111827', margin: '0 0 4px 0' }}><strong>Account No:</strong> {accountNumber}</p>}
-                                        {swiftCode && <p style={{ fontSize: '13px', color: '#6B7280', margin: 0 }}><strong>SWIFT:</strong> {swiftCode}</p>}
+                                        {bankName && <p style={{ fontSize: '12px', color: '#111827', margin: '0 0 4px 0' }}><strong>Bank:</strong> {bankName}</p>}
+                                        {accountName && <p style={{ fontSize: '12px', color: '#111827', margin: '0 0 4px 0' }}><strong>A/C Name:</strong> {accountName}</p>}
+                                        {accountNumber && <p style={{ fontSize: '12px', color: '#111827', margin: '0 0 4px 0' }}><strong>A/C No:</strong> {accountNumber}</p>}
+                                        {swiftCode && <p style={{ fontSize: '11px', color: '#6B7280', margin: 0 }}><strong>SWIFT:</strong> {swiftCode}</p>}
                                     </div>
                                 </div>
                             )}
 
-                            {/* Mobile Money */}
-                            {mobileMoneyNumber && (
-                                <div style={{ flex: 1, minWidth: '200px' }}>
-                                    <p style={{ fontSize: '11px', fontWeight: '600', color: '#F97316', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Mobile Money</p>
-                                    <div style={{ background: '#ffffff', padding: '12px', borderRadius: '8px', border: '1px solid #FED7AA' }}>
-                                        {mobileMoneyName && <p style={{ fontSize: '13px', color: '#111827', margin: '0 0 4px 0' }}><strong>Name:</strong> {mobileMoneyName}</p>}
-                                        <p style={{ fontSize: '13px', color: '#111827', margin: 0 }}><strong>Number:</strong> {mobileMoneyNumber}</p>
+                            {/* MTN Mobile Money */}
+                            {mtnNumber && (
+                                <div style={{ flex: 1, minWidth: '140px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
+                                        <div style={{ width: '20px', height: '20px', background: '#FACC15', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '7px', color: '#000' }}>MTN</div>
+                                        <p style={{ fontSize: '11px', fontWeight: '600', color: '#CA8A04', textTransform: 'uppercase', letterSpacing: '0.5px', margin: 0 }}>MTN MoMo</p>
+                                    </div>
+                                    <div style={{ background: '#ffffff', padding: '12px', borderRadius: '8px', border: '1px solid #FEF08A' }}>
+                                        {mtnName && <p style={{ fontSize: '12px', color: '#111827', margin: '0 0 4px 0' }}><strong>Name:</strong> {mtnName}</p>}
+                                        <p style={{ fontSize: '12px', color: '#111827', margin: 0 }}><strong>Tel:</strong> {mtnNumber}</p>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Airtel Money */}
+                            {airtelNumber && (
+                                <div style={{ flex: 1, minWidth: '140px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
+                                        <div style={{ width: '20px', height: '20px', background: '#EF4444', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '6px', color: '#fff', letterSpacing: '-0.3px' }}>airtel</div>
+                                        <p style={{ fontSize: '11px', fontWeight: '600', color: '#DC2626', textTransform: 'uppercase', letterSpacing: '0.5px', margin: 0 }}>Airtel Money</p>
+                                    </div>
+                                    <div style={{ background: '#ffffff', padding: '12px', borderRadius: '8px', border: '1px solid #FECACA' }}>
+                                        {airtelName && <p style={{ fontSize: '12px', color: '#111827', margin: '0 0 4px 0' }}><strong>Name:</strong> {airtelName}</p>}
+                                        <p style={{ fontSize: '12px', color: '#111827', margin: 0 }}><strong>Tel:</strong> {airtelNumber}</p>
                                     </div>
                                 </div>
                             )}
