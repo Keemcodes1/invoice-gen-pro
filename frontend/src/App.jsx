@@ -30,6 +30,13 @@ function App() {
         includeVAT: false,
         date: new Date().toISOString().split('T')[0],
         dueDate: '',
+        // Payment Details
+        bankName: '',
+        accountName: '',
+        accountNumber: '',
+        swiftCode: '',
+        mobileMoneyName: '',
+        mobileMoneyNumber: '',
     });
     const [isSaving, setIsSaving] = useState(false);
 
@@ -359,6 +366,88 @@ function App() {
                                             value={invoiceData.dueDate}
                                             onChange={(e) => updateField('dueDate', e.target.value)}
                                         />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="glass-panel rounded-xl p-6 animate-slide-up" style={{ animationDelay: '0.15s' }}>
+                            <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 font-heading">
+                                <span className="w-1 h-6 bg-emerald-500 rounded-full"></span>
+                                Payment Details
+                            </h2>
+                            <div className="grid grid-cols-1 gap-4">
+                                {/* Bank Details */}
+                                <div className="p-4 rounded-lg" style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                                    <p className="text-sm font-semibold text-emerald-400 mb-3">Bank Transfer</p>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm text-slate-400 mb-1">Bank Name</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="e.g. Stanbic Bank"
+                                                value={invoiceData.bankName}
+                                                onChange={(e) => updateField('bankName', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-slate-400 mb-1">Account Name</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="Account holder name"
+                                                value={invoiceData.accountName}
+                                                onChange={(e) => updateField('accountName', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-slate-400 mb-1">Account Number</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="0123456789"
+                                                value={invoiceData.accountNumber}
+                                                onChange={(e) => updateField('accountNumber', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-slate-400 mb-1">SWIFT Code (Optional)</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="SBICUGKX"
+                                                value={invoiceData.swiftCode}
+                                                onChange={(e) => updateField('swiftCode', e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Mobile Money */}
+                                <div className="p-4 rounded-lg" style={{ background: 'rgba(249, 115, 22, 0.1)', border: '1px solid rgba(249, 115, 22, 0.2)' }}>
+                                    <p className="text-sm font-semibold text-orange-400 mb-3">Mobile Money</p>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm text-slate-400 mb-1">Account Name</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="Mobile money name"
+                                                value={invoiceData.mobileMoneyName}
+                                                onChange={(e) => updateField('mobileMoneyName', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-slate-400 mb-1">Phone Number</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="+256 700 000 000"
+                                                value={invoiceData.mobileMoneyNumber}
+                                                onChange={(e) => updateField('mobileMoneyNumber', e.target.value)}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
