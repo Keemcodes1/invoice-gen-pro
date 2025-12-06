@@ -174,7 +174,12 @@ const Dashboard = ({
                     {/* Create New Button */}
                     <button
                         onClick={onCreateNew}
-                        className="btn-primary flex items-center justify-center gap-2 whitespace-nowrap text-sm"
+                        className="btn-primary btn-with-icon"
+                        style={{
+                            padding: '0.625rem 1.25rem',
+                            fontSize: '0.875rem',
+                            boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)',
+                        }}
                     >
                         <Plus className="w-4 h-4" />
                         <span>New Invoice</span>
@@ -258,35 +263,70 @@ const Dashboard = ({
                                             <div className="col-span-2 flex justify-end gap-1">
                                                 <button
                                                     onClick={() => onEdit(invoice)}
-                                                    className="p-2 text-slate-400 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-all"
+                                                    className="btn-icon btn-icon-blue"
+                                                    style={{
+                                                        padding: '0.5rem 0.75rem',
+                                                        borderRadius: '8px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: '0.375rem',
+                                                        fontSize: '0.8125rem',
+                                                        fontWeight: '500'
+                                                    }}
                                                     title="Edit"
                                                 >
-                                                    <Edit2 className="w-4 h-4" />
+                                                    <Edit2 className="w-3.5 h-3.5" />
+                                                    <span className="hidden lg:inline">Edit</span>
                                                 </button>
                                                 {invoice.status === 'draft' && (
                                                     <button
                                                         onClick={() => onUpdateStatus(invoice.id, 'sent')}
-                                                        className="p-2 text-slate-400 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-all"
+                                                        className="btn-icon"
+                                                        style={{
+                                                            padding: '0.5rem 0.75rem',
+                                                            borderRadius: '8px',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '0.375rem',
+                                                            fontSize: '0.8125rem',
+                                                            fontWeight: '500',
+                                                            background: 'rgba(99, 102, 241, 0.1)',
+                                                            color: '#818cf8'
+                                                        }}
                                                         title="Mark as Sent"
                                                     >
-                                                        <Send className="w-4 h-4" />
+                                                        <Send className="w-3.5 h-3.5" />
+                                                        <span className="hidden lg:inline">Send</span>
                                                     </button>
                                                 )}
                                                 {invoice.status === 'sent' && (
                                                     <button
                                                         onClick={() => onUpdateStatus(invoice.id, 'paid')}
-                                                        className="p-2 text-slate-400 hover:text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition-all"
+                                                        className="btn-icon"
+                                                        style={{
+                                                            padding: '0.5rem 0.75rem',
+                                                            borderRadius: '8px',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '0.375rem',
+                                                            fontSize: '0.8125rem',
+                                                            fontWeight: '500',
+                                                            background: 'rgba(16, 185, 129, 0.1)',
+                                                            color: '#34d399'
+                                                        }}
                                                         title="Mark as Paid"
                                                     >
-                                                        <CheckCircle className="w-4 h-4" />
+                                                        <CheckCircle className="w-3.5 h-3.5" />
+                                                        <span className="hidden lg:inline">Paid</span>
                                                     </button>
                                                 )}
                                                 <button
                                                     onClick={() => onDelete(invoice.id)}
-                                                    className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all"
+                                                    className="btn-icon btn-icon-red"
+                                                    style={{ padding: '0.5rem', borderRadius: '8px' }}
                                                     title="Delete"
                                                 >
-                                                    <Trash2 className="w-4 h-4" />
+                                                    <Trash2 className="w-3.5 h-3.5" />
                                                 </button>
                                             </div>
                                         </div>
@@ -342,33 +382,52 @@ const Dashboard = ({
                                         </div>
 
                                         {/* Action buttons */}
-                                        <div className="flex gap-2">
+                                        <div className="flex gap-2 mt-1">
                                             <button
                                                 onClick={() => onEdit(invoice)}
-                                                className="flex-1 py-2 px-3 text-sm font-medium text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 rounded-lg transition-colors flex items-center justify-center gap-2"
+                                                className="flex-1 py-2.5 px-4 text-sm font-semibold text-white rounded-xl transition-all duration-200 flex items-center justify-center gap-2"
+                                                style={{
+                                                    background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+                                                    boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
+                                                }}
                                             >
                                                 <Edit2 className="w-4 h-4" />
-                                                Edit
+                                                Edit Invoice
                                             </button>
                                             {invoice.status === 'draft' && (
                                                 <button
                                                     onClick={() => onUpdateStatus(invoice.id, 'sent')}
-                                                    className="py-2 px-3 text-sm font-medium text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 rounded-lg transition-colors flex items-center justify-center"
+                                                    className="py-2.5 px-4 text-sm font-semibold text-white rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5"
+                                                    style={{
+                                                        background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                                                        boxShadow: '0 4px 12px rgba(99, 102, 241, 0.3)'
+                                                    }}
                                                 >
                                                     <Send className="w-4 h-4" />
+                                                    Send
                                                 </button>
                                             )}
                                             {invoice.status === 'sent' && (
                                                 <button
                                                     onClick={() => onUpdateStatus(invoice.id, 'paid')}
-                                                    className="py-2 px-3 text-sm font-medium text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 rounded-lg transition-colors flex items-center justify-center"
+                                                    className="py-2.5 px-4 text-sm font-semibold text-white rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5"
+                                                    style={{
+                                                        background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                                                        boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)'
+                                                    }}
                                                 >
                                                     <CheckCircle className="w-4 h-4" />
+                                                    Paid
                                                 </button>
                                             )}
                                             <button
                                                 onClick={() => onDelete(invoice.id)}
-                                                className="py-2 px-3 text-sm font-medium text-red-400 bg-red-500/10 hover:bg-red-500/20 rounded-lg transition-colors flex items-center justify-center"
+                                                className="py-2.5 px-3 text-sm font-medium rounded-xl transition-all duration-200 flex items-center justify-center"
+                                                style={{
+                                                    background: 'rgba(239, 68, 68, 0.1)',
+                                                    border: '1px solid rgba(239, 68, 68, 0.2)',
+                                                    color: '#f87171'
+                                                }}
                                             >
                                                 <Trash2 className="w-4 h-4" />
                                             </button>

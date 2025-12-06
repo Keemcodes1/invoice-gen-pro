@@ -466,6 +466,17 @@ label {
     }
 }
 
+/* Large breakpoint utilities */
+.lg\:inline {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .lg\:inline {
+        display: inline;
+    }
+}
+
 /* Grid utilities */
 .grid {
     display: grid;
