@@ -179,12 +179,167 @@ button {
 
 .btn-primary:active {
     transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
 .btn-primary:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
+    box-shadow: none;
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: rgba(51, 65, 85, 0.8);
+    color: #e2e8f0;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    border-radius: var(--radius-lg);
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+    background: rgba(71, 85, 105, 0.9);
+    border-color: rgba(100, 116, 139, 0.5);
+    transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* Success Button */
+.btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* Danger Button */
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Ghost/Icon Button */
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: #94a3b8;
+    transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+    background: rgba(51, 65, 85, 0.6);
+    color: #f1f5f9;
+}
+
+.btn-icon.btn-icon-blue:hover {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+}
+
+.btn-icon.btn-icon-green:hover {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+}
+
+.btn-icon.btn-icon-red:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+}
+
+/* Button Group */
+.btn-group {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+/* Full Width Button */
+.btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Button with Icon */
+.btn-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Floating Action Button */
+.btn-fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    z-index: 40;
+}
+
+@media (max-width: 640px) {
+    .btn-fab {
+        width: 48px;
+        height: 48px;
+        bottom: 1rem;
+        right: 1rem;
+    }
 }
 
 /* Container */
