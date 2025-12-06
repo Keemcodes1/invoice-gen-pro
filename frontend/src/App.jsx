@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Save, Download, Stamp, Loader2, ArrowLeft, LayoutDashboard } from 'lucide-react';
+import { FileText, Save, Download, Stamp, Loader2, ArrowLeft, LayoutDashboard, Plus } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import axios from 'axios';
@@ -357,8 +357,16 @@ function App() {
                         <button
                             onClick={handleCreateNew}
                             className="btn-primary flex items-center gap-2"
+                            style={{
+                                padding: '0.75rem 1.5rem',
+                                fontSize: '0.9375rem',
+                                fontWeight: '600',
+                                borderRadius: '12px',
+                                background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                                boxShadow: '0 6px 20px rgba(59, 130, 246, 0.45), inset 0 1px 0 rgba(255,255,255,0.2)',
+                            }}
                         >
-                            <FileText className="w-4 h-4" />
+                            <Plus className="w-5 h-5" style={{ strokeWidth: 2.5 }} />
                             <span className="hidden sm:inline">New Invoice</span>
                             <span className="sm:hidden">New</span>
                         </button>

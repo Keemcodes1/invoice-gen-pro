@@ -176,12 +176,18 @@ const Dashboard = ({
                         onClick={onCreateNew}
                         className="btn-primary btn-with-icon"
                         style={{
-                            padding: '0.625rem 1.25rem',
-                            fontSize: '0.875rem',
-                            boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)',
+                            padding: '0.75rem 1.5rem',
+                            fontSize: '0.9375rem',
+                            fontWeight: '600',
+                            borderRadius: '12px',
+                            background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                            boxShadow: '0 6px 20px rgba(59, 130, 246, 0.45), inset 0 1px 0 rgba(255,255,255,0.2)',
+                            letterSpacing: '0.02em',
+                            whiteSpace: 'nowrap',
+                            minWidth: 'fit-content'
                         }}
                     >
-                        <Plus className="w-4 h-4" />
+                        <Plus className="w-5 h-5" style={{ strokeWidth: 2.5 }} />
                         <span>New Invoice</span>
                     </button>
                 </div>
@@ -203,8 +209,23 @@ const Dashboard = ({
                                 : "Try adjusting your search or filter"}
                         </p>
                         {invoices.length === 0 && (
-                            <button onClick={onCreateNew} className="btn-primary inline-flex items-center gap-2">
-                                <Plus className="w-4 h-4" />
+                            <button
+                                onClick={onCreateNew}
+                                className="btn-primary"
+                                style={{
+                                    padding: '1rem 2rem',
+                                    fontSize: '1rem',
+                                    fontWeight: '600',
+                                    borderRadius: '14px',
+                                    background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                                    boxShadow: '0 8px 25px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255,255,255,0.2)',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '0.625rem',
+                                    letterSpacing: '0.02em'
+                                }}
+                            >
+                                <Plus className="w-5 h-5" style={{ strokeWidth: 2.5 }} />
                                 Create Invoice
                             </button>
                         )}
